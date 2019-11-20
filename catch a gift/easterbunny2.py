@@ -5,8 +5,8 @@ import time
 import random
 
 pygame.init()   
-display_width=1500
-display_height=765
+display_width=1280
+display_height=853
 card_width=200
 size=(display_width,display_height)
 white = pygame.image.load('background2.jpg')
@@ -20,9 +20,9 @@ pygame.display.set_caption('Catch-a-Gift')   #window title
 clock = pygame.time.Clock() #clock - imposes time
 
 socks=pygame.image.load('sock1.png')
-gift1=pygame.image.load('giftbox.png')
-gift2=pygame.image.load('giftbox.png')
-poop=pygame.image.load('poop.jpg')
+gift1=pygame.image.load('gift.png')
+gift2=pygame.image.load('gift.png')
+poop=pygame.image.load('poop.png')
 
 
 def things_dodged(count):
@@ -58,6 +58,25 @@ def message_display(text):
 
 def crash():
     message_display('Game Over')
+
+def game_intro():
+
+    intro = True
+
+    while intro:
+        for event in pygame.event.get():
+            print(event)
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+                
+        gameDisplay.fill(white)
+        largeText = pygame.font.Font('freesansbold.ttf',115)
+        TextSurf, TextRect = text_objects("A bit Racey", largeText)
+        TextRect.center = ((display_width/2),(display_height/2))
+        gameDisplay.blit(TextSurf, TextRect)
+        pygame.display.update()
+        clock.tick(15)
 
 def game_loop():    
     x = display_width * 0.45
