@@ -9,7 +9,7 @@ display_width=1500
 display_height=765
 card_width=200
 size=(display_width,display_height)
-white = pygame.image.load('background.jpg')
+white = pygame.image.load('background2.jpg')
 screen = pygame.display.set_mode(size)
 black = (0,0,0)
 red = (255,0,0)
@@ -19,29 +19,29 @@ pygame.display.set_caption('Catch-a-Gift')   #window title
 
 clock = pygame.time.Clock() #clock - imposes time
 
-carImg=pygame.image.load('socks.png')
-egg=pygame.image.load('egg3.png')
-egg2=pygame.image.load('egg2.png')
-egg1=pygame.image.load('poop.jpg')
+socks=pygame.image.load('sock1.png')
+gift1=pygame.image.load('giftbox.png')
+gift2=pygame.image.load('giftbox.png')
+poop=pygame.image.load('poop.jpg')
 
 
 def things_dodged(count):
     font = pygame.font.SysFont(None, 35)
-    text = font.render('Easter Eggs: '+str(count), True, black)
-    gameDisplay.blit(text,(60,450))
+    text = font.render('Gifts collected: '+str(count), True, black)
+    gameDisplay.blit(text,(60,60))
 #def thing(thingx, thingy, thingw, thingh, color):
     #pygame.draw.rect(gameDisplay, color,[thingx, thingy, thingw, thingh])
 def thing(thingx, thingy, thingw, thingh):
-    gameDisplay.blit(egg,(thingx, thingy, thingw, thingh))
+    gameDisplay.blit(gift1,(thingx, thingy, thingw, thingh))
 def thing2(thingx2, thingy2, thingw, thingh):
-    gameDisplay.blit(egg2,(thingx2, thingy2, thingw, thingh))
+    gameDisplay.blit(gift2,(thingx2, thingy2, thingw, thingh))
 def thing3(thingx3, thingy3, thingw, thingh):
-    gameDisplay.blit(egg1,(thingx3, thingy3, thingw, thingh))
+    gameDisplay.blit(poop,(thingx3, thingy3, thingw, thingh))
 def thing4(thingx4, thingy4, thingw, thingh):
-    gameDisplay.blit(egg1,(thingx4, thingy4, thingw, thingh))
+    gameDisplay.blit(poop,(thingx4, thingy4, thingw, thingh))
 
 def car(x,y):
-    gameDisplay.blit(carImg,(x,y))
+    gameDisplay.blit(socks,(x,y))
 
 def text_objects(text, font):
     textSurface = font.render(text, True, black)
@@ -57,7 +57,7 @@ def message_display(text):
     game_loop()
 
 def crash():
-    message_display('Bad Easter Egg')
+    message_display('Game Over')
 
 def game_loop():    
     x = display_width * 0.45
